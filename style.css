@@ -1,6 +1,115 @@
+@charset "UTF-8";
 /*
 Theme Name: Mota
 Author: Quibel Stéphanie
 Description: Thème pour la photographe Nathalie Mota
 Version: 1.0
 */
+body {
+  font-family: Space Mono;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  color: #000;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 6.25vw;
+  font-weight: 700;
+  line-height: normal;
+}
+
+h2 {
+  font-size: 66px;
+  font-weight: 400;
+  line-height: 58px;
+}
+
+a,
+h3,
+h4 {
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  color: #000;
+}
+
+.site_header {
+  max-width: 93.75vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.site_header .site_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+}
+.site_header .site_nav .site_logo {
+  width: 216px;
+  height: 14px;
+  margin-left: 146px;
+  padding: 31px 0px 35px 0px;
+}
+.site_header .site_nav .site_header_menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  -moz-column-gap: 45px;
+       column-gap: 45px;
+  margin-right: 146px;
+  padding: 28px 0px 28px 0px;
+}
+.site_header .site_nav .site_header_menu li {
+  list-style-type: none;
+}
+.site_header .site_nav .site_header_menu li a {
+  text-decoration: none;
+}
+.site_header .site_hero_header .site_hero_image {
+  width: 100%;
+}
+.site_header .site_hero_header h1 {
+  position: relative;
+  top: -41vw;
+  left: 13vw;
+  -webkit-text-stroke: 2px white;
+  -webkit-text-fill-color: transparent;
+}/*# sourceMappingURL=style.css.map */
