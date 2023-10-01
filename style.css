@@ -5,7 +5,13 @@ Author: Quibel Stéphanie
 Description: Thème pour la photographe Nathalie Mota
 Version: 1.0
 */
+html,
 body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+html body,
+body body {
   font-family: Space Mono;
   display: flex;
   flex-direction: column;
@@ -14,49 +20,52 @@ body {
   margin: 0;
   padding: 0;
 }
-
-h1,
-h2 {
+html body h1,
+html body h2,
+body body h1,
+body body h2 {
   color: #000;
   font-style: italic;
   text-transform: uppercase;
 }
-
-h1 {
+html body h1,
+body body h1 {
   font-size: 6.25vw;
   font-weight: 700;
   line-height: normal;
 }
-
-h2 {
+html body h2,
+body body h2 {
   font-size: 66px;
   font-weight: 400;
   line-height: 58px;
 }
-
-a,
-h3,
-h4 {
+html body a,
+html body h3,
+html body h4,
+body body a,
+body body h3,
+body body h4 {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
   color: #000;
 }
-
-h3 {
+html body h3,
+body body h3 {
   font-size: 18px;
   letter-spacing: 1.8px;
   text-transform: uppercase;
 }
-
-h4 {
+html body h4,
+body body h4 {
   font-size: 14px;
   letter-spacing: 1.4px;
   text-transform: uppercase;
 }
-
-p {
+html body p,
+body body p {
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -112,4 +121,31 @@ p {
   left: 13vw;
   -webkit-text-stroke: 2px white;
   -webkit-text-fill-color: transparent;
+}
+
+.site_footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 93.75vw;
+  width: 100%;
+  height: 40px;
+}
+.site_footer .site_footer_menu {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 86px;
+       column-gap: 86px;
+  border-top: 1px solid #000;
+}
+.site_footer .site_footer_menu li {
+  list-style-type: none;
+  margin-right: 86px;
+}
+.site_footer .site_footer_menu li a {
+  text-decoration: none;
 }/*# sourceMappingURL=style.css.map */
