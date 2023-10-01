@@ -11,20 +11,21 @@
 <body <?php body_class('site'); ?>> <!-- permet d'obtenir des noms de classe css en fonction de la page visitée -->
 
     <?php wp_body_open(); ?>
-    <header class="site_header">
-        <nav class="site_nav">
-            <img class="site_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Logo">
+    <div id="page" class="site">
+        <header class="site_header">
+            <nav class="site_nav">
+                <img class="site_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Logo">
+                <?php wp_nav_menu(
+                    array(
+                        'theme_location' => 'nav_menu',
+                        'container' => 'ul', //afin d'éviter que WP ajoute un div autour
+                        'menu_class' => 'site_header_menu', //ma classe personnalisée
+                    )
+                ); ?>
+            </nav>
 
-            <?php wp_nav_menu(
-                array(
-                    'theme_location' => 'nav_menu',
-                    'container' => 'ul', //afin d'éviter que WP ajoute un div autour
-                    'menu_class' => 'site_header_menu', //ma classe personnalisée
-                )
-            ); ?>
-        </nav>
-        <div class="site_hero_header">
-            <img class="site_hero_image" src="<?php echo get_template_directory_uri(); ?>/assets/images/nathalie-11-1.webp" alt="Photo de fête, un groupe de personnes joyeuses entoure un danseur">
-            <h1>PHOTOGRAPHE EVENT</h1>
-        </div>
-    </header>
+            <div class="site_hero_header">
+                <img class="site_hero_image" src="<?php echo get_template_directory_uri(); ?>/assets/images/nathalie-11-1.webp" alt="Photo de fête, un groupe de personnes joyeuses entoure un danseur">
+                <h1>PHOTOGRAPHE EVENT</h1>
+            </div>
+        </header>
