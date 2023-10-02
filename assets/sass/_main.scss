@@ -1,0 +1,88 @@
+$red: #E00000;
+$red-sec: #FE5858;
+$red-ter: #FFD6D6;
+$black: #000;
+$blue-dark: #313144;
+$grey-dark: #C4C4C4;
+$grey-med: #D8D8D8;
+$grey-light: #E5E5E5;
+
+//retire les barres de défilement
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+
+
+    body {
+        font-family: Space Mono;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+
+
+
+        h1,
+        h2 {
+            color: $black;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 6.25vw;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        h2 {
+            font-size: 66px;
+            font-weight: 400;
+            line-height: 58px;
+        }
+
+        a,
+        h3,
+        h4 {
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+            color: $black;
+        }
+
+        h3 {
+            font-size: 18px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+
+        h4 {
+            font-size: 14px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-family: Poppins;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+            color: $black;
+        }
+
+        label {
+            color: $blue-dark;
+            font-family: Poppins;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+    }
+}
