@@ -22,10 +22,11 @@
                         'menu_class' => 'site_header_menu', //ma classe personnalisée
                     )
                 ); ?>
+
             </nav>
 
             <div class="site_hero_header">
-                <img class="site_hero_image" src="<?php echo get_template_directory_uri(); ?>/assets/images/nathalie-11-1.webp" alt="Photo de fête, un groupe de personnes joyeuses entoure un danseur">
+                <img class="site_hero_image" src="<?php echo get_template_directory_uri(); ?>/assets/images/nathalie-9-1.webp" alt="Photo où l'on voit une mariée avec d'autres personnes dansant en ligne">
                 <h1>PHOTOGRAPHE EVENT</h1>
             </div>
         </header>
