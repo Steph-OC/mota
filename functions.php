@@ -4,7 +4,7 @@ function mota_register_assets()
 {
     wp_enqueue_style('mota', get_stylesheet_uri(), array(), '1.0');
     wp_enqueue_style('fonts-style',  get_stylesheet_directory_uri() . '/assets/css/fonts-style.css');
-    wp_enqueue_script('script', get_stylesheet_directory_uri() . '/assets/js/script.js', array(), 1.1, true);
+    wp_enqueue_script('script', get_stylesheet_directory_uri() . '/assets/js/script.js', array('jquery'), 1.1, true);
 }
 add_action('wp_enqueue_scripts', 'mota_register_assets');
 

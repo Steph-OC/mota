@@ -1,20 +1,18 @@
-
 window.onload = (event) => {
     const openModal = document.querySelector('.openModal');
-    const siteModal = document.querySelector('.site_modal_contact');
-    const siteOverlay = document.querySelector('.mask');
-    
-    
+    // Get the modal
+    const modal = document.getElementById('myModal');
+
+    // When the user clicks on the button, open the modal
     openModal.addEventListener('click', (e) => {
-        siteModal.style.display = 'block';
-        siteOverlay.style.display = 'block';
+        modal.classList.add('show');
         e.preventDefault();
     });
-    
-    siteOverlay.addEventListener('click', (event) => {
-        if(event.target == siteOverlay) {
-           siteModal.style.display= 'none';
-            siteOverlay.style.display = 'none';
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.classList.remove('show');
         }
     });
-    }
+
+}
