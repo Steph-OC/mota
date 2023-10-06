@@ -1,20 +1,17 @@
-
 window.onload = (event) => {
-const openModal = document.querySelector('.openModal');
-const siteModal = document.querySelector('.site_modal_contact');
-const siteOverlay = document.querySelector('.mask');
+    const openModal = document.querySelector('.openModal');
+    const modal = document.getElementById('myModal');
 
 
-openModal.addEventListener('click', (e) => {
-    siteModal.style.display = 'block';
-    siteOverlay.style.display = 'block';
-    e.preventDefault();
-});
+    openModal.addEventListener('click', (e) => {
+        modal.classList.add('show');
+        e.preventDefault();
+    });
 
-siteOverlay.addEventListener('click', (event) => {
-    if(event.target == siteOverlay) {
-       
-        siteOverlay.style.display = 'none';
-    }
-});
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.classList.remove('show');
+        }
+    });
+
 }

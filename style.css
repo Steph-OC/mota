@@ -91,6 +91,7 @@ body body label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 .site_header .site_nav {
   display: flex;
@@ -166,21 +167,37 @@ body body label {
   font-weight: 700;
 }
 
-.mask {
-  display: none;
+/* The Modal (background) */
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
-  z-index: 9;
-  padding-top: 100px;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
-  top: 0;
   width: 100%;
+  /* Full width */
   height: 100%;
+  /* Full height */
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.558);
-  animation: overlay 1s ease-out;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  top: -100%;
+  opacity: 0;
+  transition: top 0.4s, opacity 0.4s ease-in;
 }
-.mask .site_modal_contact {
-  display: none;
+
+.modal.show {
+  top: 0;
+  opacity: 1;
+}
+
+.site_modal_contact {
   position: absolute;
   top: 0;
   left: 30%;
@@ -191,65 +208,73 @@ body body label {
   padding-top: 18px;
   border: 5px solid #000;
   background: #FFF;
-  animation: modal 1s ease-out;
 }
-.mask .site_modal_contact .site_modal_header {
+.site_modal_contact .site_modal_header {
   overflow: hidden;
 }
-.mask .site_modal_contact .site_modal_content {
+.site_modal_contact .site_modal_content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.mask .site_modal_contact .wpcf7-form {
+.site_modal_contact .wpcf7-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 263px;
   margin-top: 8.95px;
 }
-.mask .site_modal_contact .wpcf7-form .input-form {
+.site_modal_contact .wpcf7-form .input-form {
   margin-top: 1.5625vw;
 }
-.mask .site_modal_contact .wpcf7-form .input-name,
-.mask .site_modal_contact .wpcf7-form .inupt-mail,
-.mask .site_modal_contact .wpcf7-form .input-ref-photo,
-.mask .site_modal_contact .wpcf7-form .input-message {
+.site_modal_contact .wpcf7-form .site_modal_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.site_modal_contact .wpcf7-form .wpcf7-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 263px;
+  margin-top: 8.95px;
+}
+.site_modal_contact .wpcf7-form .wpcf7-form .input-form {
+  margin-top: 1.5625vw;
+}
+.site_modal_contact .wpcf7-form .wpcf7-form .input-name,
+.site_modal_contact .wpcf7-form .wpcf7-form .inupt-mail,
+.site_modal_contact .wpcf7-form .wpcf7-form .input-ref-photo,
+.site_modal_contact .wpcf7-form .wpcf7-form .input-message {
   width: 263px;
   border-radius: 8px;
   border: 1px solid #B8BBC2;
   background: #FFF;
 }
-.mask .site_modal_contact .wpcf7-form .input-name,
-.mask .site_modal_contact .wpcf7-form .inupt-mail,
-.mask .site_modal_contact .wpcf7-form .input-ref-photo {
+.site_modal_contact .wpcf7-form .wpcf7-form .input-name,
+.site_modal_contact .wpcf7-form .wpcf7-form .inupt-mail,
+.site_modal_contact .wpcf7-form .wpcf7-form .input-ref-photo {
   width: 263px;
   height: 40px;
   border-radius: 8px;
   border: 1px solid #B8BBC2;
   background: #FFF;
 }
-.mask .site_modal_contact .wpcf7-form .input-message {
-  resize: none;
-  height: 210px;
-}
-.mask .site_modal_contact .wpcf7-form .input-envoyer {
-  width: 263px;
-  height: 50px;
-  padding: 8px 15px;
-  border-radius: 2px;
-  background-color: #D8D8D8;
-  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
-  margin-top: 19px;
-}
-.mask .site_modal_contact .wpcf7-form .input-message > .wpcf7-not-valid-tip {
+.site_modal_contact .wpcf7-form .wpcf7-form .input-message > .wpcf7-not-valid-tip {
   color: #dc3232;
   font-size: 1em;
   font-weight: normal;
   display: block;
   position: relative;
 }
-.mask .site_modal_contact .wpcf7-form .wpcf7-spinner {
+.site_modal_contact .wpcf7-form .wpcf7-form .input-message > .wpcf7-not-valid-tip {
+  color: #dc3232;
+  font-size: 1em;
+  font-weight: normal;
+  display: block;
+  position: relative;
+}
+.site_modal_contact .wpcf7-form .wpcf7-form .wpcf7-spinner {
   background-color: #FE5858;
   left: 278px;
   bottom: 34px;

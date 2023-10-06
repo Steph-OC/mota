@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 0;
 
     .site_nav {
         display: flex;
@@ -35,10 +36,10 @@
 
                 a {
                     text-decoration: none;
-                
-                &:hover {
-                    font-weight: 700;
-                }
+
+                    &:hover {
+                        font-weight: 700;
+                    }
                 }
             }
         }
