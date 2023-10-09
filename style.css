@@ -83,6 +83,16 @@ body body label {
   line-height: normal;
   text-transform: uppercase;
 }
+html body li,
+body body li {
+  font-family: Space Mono;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
 
 .site_header {
   max-width: 93.75vw;
@@ -126,10 +136,11 @@ body body label {
 .site_header .site_nav .site_header_menu li a:hover {
   font-weight: 700;
 }
-.site_header .site_hero_header .site_hero_image {
+
+.site_hero_header .site_hero_image {
   width: 100%;
 }
-.site_header .site_hero_header h1 {
+.site_hero_header h1 {
   position: relative;
   top: -41vw;
   left: 13vw;
@@ -339,4 +350,75 @@ body body label {
   100% {
     opacity: 0;
   }
+}
+.main-single-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 93.75vw;
+  width: 100%;
+}
+.main-single-photo .content-single-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 21px;
+  margin: 0px 146px 0px 146px;
+}
+.main-single-photo .content-single-photo .content-desc-photo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.main-single-photo .content-single-photo .content-desc-photo .desc-photo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style-type: none;
+  text-transform: uppercase;
+  margin-bottom: 17px;
+  padding: 0;
+  border-bottom: 1px solid #000;
+}
+.main-single-photo .content-single-photo .content-desc-photo .desc-photo a {
+  text-decoration: none;
+}
+.main-single-photo .content-single-photo .content-desc-photo .desc-photo .photo-title {
+  width: 50%;
+  margin: 0;
+  list-style-type: n;
+}
+.main-single-photo .content-single-photo .content-desc-photo .desc-photo .list-desc-photo {
+  list-style-type: none;
+  padding-left: 0;
+  padding-bottom: 20px;
+  margin: 0;
+}
+.main-single-photo .content-single-photo .content-desc-photo .desc-photo li {
+  margin-top: 20px;
+}
+.main-single-photo .content-single-photo .single-photo {
+  width: 100%;
+  margin-left: 21px;
+}
+.main-single-photo .content-interest-photo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+.main-single-photo .content-interest-photo .btn-interest {
+  display: flex;
+  width: 272px;
+  height: 50px;
+  padding: 8px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+  background: #D8D8D8;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+  color: #000;
+  font-family: Space Mono;
+  font-size: 12px;
 }/*# sourceMappingURL=style.css.map */
