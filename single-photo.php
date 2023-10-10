@@ -8,7 +8,7 @@
             <div class="desc-photo">
                 <h2 class="photo-title"><?php the_title(); ?></h2>
                 <ul class="list-desc-photo">
-                    <li>REFERENCE : <?php the_field('reference'); ?> <br></li>
+                    <li>REFERENCE : <span id="ref"><?php the_field('reference'); ?></span> <br></li>
                     <li><?php the_terms($post->ID, 'categorie', 'Catégorie : '); ?> <br></li>
                     <li><?php the_terms($post->ID, 'format', 'Format : '); ?> <br></li>
                     <li>TYPE : <?php the_field('type'); ?> <br></li>
