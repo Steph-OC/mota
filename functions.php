@@ -8,7 +8,7 @@ function mota_register_assets()
     if (is_single()) {
         wp_enqueue_script('nav-image', get_stylesheet_directory_uri() . '/assets/js/single.js', array('jquery'), '1.0.0', true);
     };
-    if (is_home() || is_single()) {
+    if (is_front_page() || is_single()) {
         wp_enqueue_script('ajax-script', get_template_directory_uri() . '/assets/js/ajax-script.js', array('jquery'), '1.0', true);
         wp_localize_script('ajax-script', 'ajaxscript', array('ajaxurl' => admin_url('admin-ajax.php')));
     }

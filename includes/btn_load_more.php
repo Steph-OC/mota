@@ -6,23 +6,32 @@ add_action('wp_ajax_nopriv_btn_load_more', 'btn_load_more');
 function btn_load_more()
 {
     $paged = $_POST['paged'];
-    $taxonomy = $_POST['taxonomy'];
-    
-    $ajaxposts = new WP_Query([
-        'post_type' => 'photo',
-        'posts_per_page' => -1,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'tax_query' => [
-            [
-                'taxonomy' => 'categorie',
-                'field' => 'slug',
-                'terms' => $taxonomy,
-            ]
-        ],
-        
-        'paged' => $paged,
-    ]);
+
+    if (isset($_POST['taxonomy'])) {
+        $taxonomy = $_POST['taxonomy'];
+        $ajaxposts = new WP_Query([
+            'post_type' => 'photo',
+            'posts_per_page' => -1,
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'tax_query' => [
+                [
+                    'taxonomy' => 'categorie',
+                    'field' => 'slug',
+                    'terms' => $taxonomy,
+                ]
+            ],
+
+            'paged' => $paged,
+        ]);
+    } else {
+        $ajaxposts = new WP_Query([
+            'post_type' => 'photo',
+            'posts_per_page' => 12,
+            'orderby' => 'rand',
+            'paged' => $paged,
+        ]);
+    }
 
     $response = '';
 
@@ -35,7 +44,7 @@ function btn_load_more()
     } else {
         $response = '';
     }
-    
+
     echo $response;
     exit;
 }
