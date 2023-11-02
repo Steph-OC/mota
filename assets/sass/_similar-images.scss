@@ -17,25 +17,25 @@
         justify-content: flex-start;
         width: 100%;
         flex-wrap: wrap;
-        row-gap: 6px;
-
+        row-gap: 10px;
+        
         .similar-image {
             width: 564px;
             height: 495px;
-
-        }
-
-        .image-similar {
+          
+        }   .image-similar {
             width: 50%;
-
+            display: flex;
+            justify-content: center;
+       
             & img {
                 width: 564px;
                 height: 495px;
                 object-fit: cover;
+              
             }
         }
-    }
-
+    } 
     .btn-all-images {
         display: flex;
         width: 272px;
@@ -51,15 +51,21 @@
         font-family: Space Mono;
         font-size: 12px;
         margin-top: 53px;
-
         .hidden {
             display: none;
         }
 
         &:hover {
             background-color: #000;
-            color: #fff;
+            color: #fff ;
             transition: 1s;
         }
     }
 }
+.image-similar img {
+  
+        width: 564px;
+        height: 495px;
+        object-fit: cover;
+      
+    }

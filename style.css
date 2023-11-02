@@ -576,10 +576,20 @@ textarea {
   transition: 1s;
 }
 
+.image-similar img {
+  width: 564px;
+  height: 495px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .container-filter {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 75vw;
   align-items: center;
-  margin-top: 20px;
+}
+.container-filter #photos_filters {
+  margin-top: 79px;
+  margin-bottom: 41px;
 }/*# sourceMappingURL=style.css.map */
