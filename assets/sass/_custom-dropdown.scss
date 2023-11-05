@@ -1,0 +1,132 @@
+.hidden-select {
+    display: none;
+}
+
+.container-filter {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    align-items: center;
+
+    #photos_filters {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 79px;
+        margin-bottom: 41px;
+
+        .selected-option {
+            display: flex;
+            width: 225px;
+            padding: 11px 18px;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            border: 1.3px solid $grey-dropdown;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .categories-contain {
+            margin-right: 40px;
+        }
+
+        .formats-contain {
+            margin-right: 312px;
+        }
+
+        .custom-dropdown {
+            position: relative;
+
+            .selected-option.open {
+                border: 2px solid #215AFF;
+                border-radius: 8px 8px 0px 0px;
+                outline: none;
+            }
+
+            .options {
+                width: 260px;
+                color: $blue-dark;
+                font-family: Poppins;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: white;
+                border-radius: 8px;
+                z-index: 1;
+                opacity: 0;
+                transform: translateY(-40px);
+                visibility: hidden;
+
+                div {
+                    padding: 11px 18px;
+                    cursor: pointer;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    &:hover {
+                        background-color: $red-ter;
+                    }
+
+                    &:focus {
+                        background-color: $red-sec;
+                        color: $blue-dark;
+                    }
+                }
+
+                &.visible {
+                    animation: slideDown 0.7s forwards;
+                    visibility: visible;
+                }
+
+                &.hiding {
+                    animation: slideUp 0.7s forwards;
+                }
+            }
+
+            .option-selected {
+                background-color: $red;
+                color: #FFFFFF;
+            }
+        }
+
+        .arrow {
+            svg {
+                transform: rotate(0deg); // État initial (fermé)
+                transition: transform 0.3s ease;
+
+                &.open {
+                    transform: rotate(180deg); // État ouvert
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}
