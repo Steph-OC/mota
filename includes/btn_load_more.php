@@ -45,14 +45,25 @@ function btn_load_more()
 
     if ($ajaxposts->have_posts()) {
         while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-            $response .= '<div class="image-similar">';
-            $response .= get_the_post_thumbnail(get_the_ID(), array(564, 495));
-            $response .= '</div>';
+            ob_start();
+?>
+
+            
+                <div class="image-similar">
+                    <div class="image-overlay">
+                        <?php echo get_the_post_thumbnail(get_the_ID(), array(564, 495)); ?>
+                        <?php get_template_part('template-parts/site-overlay-content'); // Assurez-vous que le chemin est correct 
+                        ?>
+                    </div>
+                </div>
+           
+<?php
+            $response .= ob_get_clean();
         endwhile;
     } else {
-        $response = '';
+        $response = 'Aucune autre photo disponible';
     }
 
     echo $response;
-    exit;
+    wp_die();
 }

@@ -42,9 +42,8 @@ $args = array(
         <?php
 
         ?>
+        
     </div>
     <button id="load-more-button" class="btn-all-images" data-taxonomy="<?php echo $postCat; ?>" type="button">Toutes les photos</button>
-
-
-    </div>
+   
 </section>

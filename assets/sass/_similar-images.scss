@@ -14,7 +14,7 @@
     .img-similar-images {
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: center;
         width: 100%;
         flex-wrap: wrap;
         row-gap: 10px;
@@ -62,16 +62,24 @@
                     opacity: 0;
                     transition: visibility 0s, opacity 0.5s linear;
 
-                    .ref-overlay {
-                        margin-top: 10px; // Ajustez selon vos besoins
+                   
+                    .icons {
+                        cursor: pointer;
                     }
-
+                    .icon-eye {
+                       
+                        color: white;
+                    }
                     .icon-expand {
                         position: absolute;
-                        top: 10px; // Ajustez la valeur pour déplacer l'icône du bord supérieur
-                        right: 10px; // Ajustez la valeur pour déplacer l'icône du bord droit
-                        // Ajoutez d'autres styles si nécessaire
+                        top: 10px; 
+                        right: 10px; 
                     }
+                    .ref-overlay {
+                        position: absolute;
+                        bottom: 10px;
+                        left: 10px; 
+                     }
 
                     .category-overlay {
                         position: absolute;
@@ -79,17 +87,13 @@
                         right: 10px;
                     }
 
-                    .icon {
-                        // Ajouter des marges si nécessaire
-                        margin: 0 5px;
-                        // Exemple pour ajouter de l'espacement horizontal
-                        // Autres styles spécifiques aux icônes
-                    }
+                  
                 }
             }
         }
-    }
 
+       
+    }
     .btn-all-images {
         display: flex;
         width: 272px;

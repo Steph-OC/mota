@@ -27,9 +27,9 @@
                     <?php get_template_part('template-parts/site-mini-carrousel'); ?>
                 </article>
     </section>
-    <section class="container-similar-images">
+    
         <?php get_template_part('template-parts/site-similar-images'); ?>
-    </section>
+    
 </main>
 <?php endwhile;
         endif; ?>

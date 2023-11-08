@@ -1,6 +1,10 @@
 (function ($) {
 
     $(document).ready(function () {
+          // Gestionnaire de clics pour les images
+          $(document).on('click', '.img-similar-images .image-similar', function() {
+            // Ici, vous pouvez ouvrir une lightbox ou exécuter d'autres actions quand on clique sur une image
+        });
         // Lorsque le formulaire de filtrage est soumis
         $('#photos_filters').on('change', 'select', function (e) {
             e.preventDefault();

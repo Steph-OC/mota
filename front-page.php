@@ -26,18 +26,17 @@
                 <?php
                     endwhile;
                     wp_reset_postdata();
-                    
+
                 else : echo "Aucune autre photo ne correspond à votre demande...";
                 endif;
                 ?>
-
+               
+              
+              
             </div>
-            <button id="load-more-button" class="btn-all-images" type="button">Toutes les photos</button>
-
-            </div>
-            <div class="container-images">
-
-            </div>
+            
+            <button id="load-more-button" class="btn-all-images" type="button">Toutes les photos</button> 
+           
         </section>
     </article>
 </main>

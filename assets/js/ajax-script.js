@@ -1,56 +1,63 @@
+
 (function ($) {
     $(document).ready(function () {
         let currentPage = 0;
+
+        // Gestionnaire de clics pour les images
+        $(document).on('click', '.image-similar', function() {
+            // Ici, vous pouvez ouvrir une lightbox ou exécuter d'autres actions quand on clique sur une image
+        });
+
+        // Initialisation du bouton Load More
         $('.btn-all-images').on('click', function (event) {
-            currentPage++; //on fait currentPage + 1, car nous voulons charger la page suivante
             event.preventDefault();
+            let button = $(this); // le bouton cliqué
+            currentPage++; // Incrémente currentPage pour charger la page suivante
 
             // Accès à l'attribut data du bouton
-            const postCat = $(this).data('taxonomy');
-            //pour le bouton de la single page
+            const postCat = button.data('taxonomy');
+
+            // Préparez les données de la requête
+            let ajaxData = {
+                action: 'btn_load_more',
+                paged: currentPage,
+            };
+
+            // Ajoutez la taxonomy si elle est définie
             if (typeof postCat !== 'undefined') {
-
-                $.ajax({
-                    url: ajaxscript.ajaxurl,
-                    type: 'POST',
-                    dataType: 'html',
-                    data: {
-                        action: 'btn_load_more',
-                        paged: currentPage,
-                        taxonomy: postCat,
-                    },
-
-                    success: function (res) {
-                        $('.img-similar-images').append(res);
-                    }
-                });
-                //quand toutes les images sont affichées on cache le bouton
-                $(".btn-all-images").hide();
+                ajaxData.taxonomy = postCat;
             }
 
-            //pour le bouton de la page d'accueil
-            //si aucune taxonomy n'est passé on affiche tout
-            else {
-                $.ajax({
-                    url: ajaxscript.ajaxurl,
-                    type: 'POST',
-                    dataType: 'html',
-                    data: {
-                        action: 'btn_load_more',
-                        paged: currentPage,
-                    },
-
-                    success: function (res) {
+            $.ajax({
+                url: ajaxscript.ajaxurl,
+                type: 'POST',
+                dataType: 'html',
+                data: ajaxData,
+                beforeSend: function () {
+                    button.attr('disabled', true); // Désactivez le bouton pendant le chargement
+                },
+                success: function (res) {
+                    if (res.trim().length) {
                         $('.img-similar-images').append(res);
+                        button.attr('disabled', false); // Réactivez le bouton une fois le chargement terminé
+                    } else {
+                        // Gérez le cas où il n'y a plus d'images à charger
+                        button.hide(); // Cachez le bouton si plus rien à charger
                     }
-                });
-            }
+                },
+                error: function () {
+                    // Gérez les erreurs ici si nécessaire
+                    button.attr('disabled', false); // Assurez-vous que le bouton peut être réessayé si l'ajax échoue
+                }
+            });
         });
     });
+})(jQuery);
+
     ///////////////////////////////////////////////////////////////////////////
     ///////////////////////FILTRES FRONT PAGE /////////////////////////////////
     //////////////////////////////////////////////////////////////////////////
-
+    (function ($) {
     $(document).ready(function () {
         $('.categories_filters, .formats_filters').change(function () {
             const category = $('.categories_filters').val();
@@ -69,7 +76,7 @@
 
                 success: function (response) {
                     // Réponse de la requête Ajax
-                    $('.container-images').html(response);
+                    $('.image-similar').html(response);
                 }
             });
         });

@@ -16,7 +16,7 @@
         ?>
         <div class="container-photo-interest">
             <div class="photo-interest">
-                <?php the_post_thumbnail(); ?>
+                <?php the_post_thumbnail(array(81, 71)); ?>
             </div>
             <div class="photo-interest-arrow">
                 <a class="left" href='<?php echo $linkPrev; ?>'>
