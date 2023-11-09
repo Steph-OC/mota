@@ -3,12 +3,13 @@ $termsCat = get_terms('categorie');
 $termsFor = get_terms('format');
 
 //fonction qui récupère les dates associées aux photos
-function get_unique_dates_photos()
+function get_unique_years_photos()
 {
-    $dates = array();
+    $years = array();
 
     $photos_query = new WP_Query(array(
         'post_type' => 'photo',
+        'posts_per_page' => -1,
         'meta_key' => 'date_prise_de_vue',
         'meta_query' => array(
             array(
@@ -20,19 +21,22 @@ function get_unique_dates_photos()
 
     if ($photos_query->have_posts()) :
         while ($photos_query->have_posts()) : $photos_query->the_post();
-            $date = get_field('date_prise_de_vue');
-            $dates[] = $date;
+            $date_string = get_field('date_prise_de_vue');
+            $date = DateTime::createFromFormat('d/m/Y', $date_string);
+            if ($date) {
+                $years[] = $date->format('Y');
+            }
         endwhile;
         wp_reset_postdata();
     endif;
 
-    $unique_dates = array_unique($dates);
-    sort($unique_dates);
+    $unique_years = array_unique($years);
+    sort($unique_years);
 
-    return $unique_dates;
+    return $unique_years;
 }
 
-$unique_dates = get_unique_dates_photos();
+$unique_years = get_unique_years_photos();
 ?>
 
 <form action="#" method="POST" id="photos_filters">
@@ -88,11 +92,9 @@ $unique_dates = get_unique_dates_photos();
 
     <select id="date-select" name="date" class="hidden-select">
         <option value="">Trier par</option>
-        <?php
-        foreach ($unique_dates as $date) :
-            echo '<option value="' . $date . '">' . $date . '</option>';
-        endforeach;
-        ?>
+        <?php foreach ($unique_years as $year) : ?>
+            <option value="<?php echo esc_attr($year); ?>"><?php echo esc_html($year); ?></option>
+        <?php endforeach; ?>
     </select>
     <div class="custom-dropdown date-contain" data-associated-select="date-select">
         <div class="selected-option">

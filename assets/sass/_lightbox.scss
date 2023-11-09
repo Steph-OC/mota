@@ -1,0 +1,84 @@
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* caché par défaut */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.lightbox.show {
+    display: flex; /* flex affichera la lightbox */
+}
+
+.lightbox__container {
+    display: flex; /* Flexbox pour la disposition */
+    flex-direction: column; /* Les éléments sont empilés verticalement */
+    justify-content: center; /* Centrage vertical */
+    align-items: center; /* Centrage horizontal */
+    position: fixed; /* Fixé à l'écran */
+    top: 50%; /* Centré verticalement */
+    left: 50%; /* Centré horizontalement */
+    transform: translate(-50%, -50%); /* Décalage pour centrer exactement */
+    max-width: 90vw; /* Largeur maximale */
+    max-height: 80vh; /* Hauteur maximale, ajustez en fonction de vos besoins */
+    z-index: 15; /* Au-dessus de l'arrière-plan de la lightbox */
+}
+
+.lightbox__image {
+    max-width: 100%; /* L'image prend la largeur maximale du conteneur */
+    max-height: 75vh; /* Hauteur maximale de l'image, ajustez pour laisser de la place pour les infos */
+    width: auto; /* Garde les proportions de l'image */
+    height: auto; /* Garde les proportions de l'image */
+}
+
+.lightbox__close {
+    position: absolute; /* Positionnement par rapport à son premier parent positionné */
+    top: 20px; /* 20px du haut de la lightbox */
+    right: 20px; /* 20px du côté droit de la lightbox */
+    width: 40px; /* Largeur du bouton de fermeture */
+    height: 40px; /* Hauteur du bouton de fermeture */
+    z-index: 20; /* Assurez-vous qu'il est au-dessus des autres éléments de la lightbox */
+    cursor: pointer; /* Change le curseur au survol pour indiquer qu'il est cliquable */
+    color: #fff; /* Couleur de l'icône, ajustez en fonction de votre design */
+    /* Ajoutez d'autres styles pour l'icône si nécessaire */
+}
+
+
+.lightbox__next,
+.lightbox__prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 11;
+    /* ... autres styles ... */
+}
+
+.lightbox__next {
+    right: 20px;
+}
+
+.lightbox__prev {
+    left: 20px;
+}
+
+.lightbox__infos {
+    display: flex; /* Utiliser Flexbox */
+    justify-content: space-around; /* Répartir les éléments avec de l'espace autour */
+    align-items: center; /* Centrer les éléments verticalement */
+    width: 100%; /* La largeur totale du conteneur */
+    margin-top: 20px; /* Espacement au-dessus des informations, ajustez selon vos besoins */
+    color: #fff; /* La couleur du texte */
+    /* Autres styles selon vos besoins */
+}
+
+.lightbox__infos > div {
+    flex: 1; /* Donne à chaque enfant une flexibilité égale */
+    text-align: center; /* Centre le texte dans chaque div */
+    /* Ajoutez des styles supplémentaires si nécessaire */
+}

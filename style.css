@@ -479,10 +479,24 @@ textarea {
   font-family: Space Mono;
   font-size: 12px;
 }
+.main-photo .content-interest-contact .btn-interest:hover {
+  background-color: #000;
+  color: #fff;
+  transition: 1s;
+}
 .main-photo .content-interest-contact .photo-interest-arrow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.main-photo .content-interest-contact .photo-interest-arrow .left.inactive,
+.main-photo .content-interest-contact .photo-interest-arrow .right.inactive {
+  opacity: 0.5;
+  cursor: default;
+}
+.main-photo .content-interest-contact .photo-interest-arrow .left.inactive img,
+.main-photo .content-interest-contact .photo-interest-arrow .right.inactive img {
+  pointer-events: none;
 }
 
 .container-similar-images {

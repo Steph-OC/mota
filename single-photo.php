@@ -11,7 +11,12 @@
                             <li><?php the_terms($post->ID, 'categorie', 'Catégorie : '); ?> <br></li>
                             <li><?php the_terms($post->ID, 'format', 'Format : '); ?> <br></li>
                             <li>TYPE : <?php the_field('type'); ?> <br></li>
-                            <li>ANNEE : <?php the_field('date_prise_de_vue'); ?> <br></li>
+                            <li>
+                            <li>ANNEE : <?php
+                                        $date = DateTime::createFromFormat('d/m/Y', get_field('date_prise_de_vue'));
+                                        echo $date ? $date->format('Y') : ''; // Affiche l'année si la date est valide
+                                        ?> <br></li>
+                            </li>
                         </ul>
                     </div>
                     <div class="single-photo">
@@ -27,9 +32,9 @@
                     <?php get_template_part('template-parts/site-mini-carrousel'); ?>
                 </article>
     </section>
-    
-        <?php get_template_part('template-parts/site-similar-images'); ?>
-    
+
+    <?php get_template_part('template-parts/site-similar-images'); ?>
+
 </main>
 <?php endwhile;
         endif; ?>

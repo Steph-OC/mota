@@ -2,10 +2,10 @@
 (function ($) {
     $(document).ready(function () {
         let currentPage = 0;
-
+        let isSinglePhotoPage = $('body').hasClass('single-photo'); // Vérifiez si c'est la page single-photo
         // Gestionnaire de clics pour les images
         $(document).on('click', '.image-similar', function() {
-            // Ici, vous pouvez ouvrir une lightbox ou exécuter d'autres actions quand on clique sur une image
+            // Ici,  ouvrir une lightbox ou exécuter d'autres actions quand on clique sur une image
         });
 
         // Initialisation du bouton Load More
@@ -17,13 +17,13 @@
             // Accès à l'attribut data du bouton
             const postCat = button.data('taxonomy');
 
-            // Préparez les données de la requête
+            // Prépare les données de la requête
             let ajaxData = {
                 action: 'btn_load_more',
                 paged: currentPage,
             };
 
-            // Ajoutez la taxonomy si elle est définie
+            // Ajoute la taxonomy si elle est définie
             if (typeof postCat !== 'undefined') {
                 ajaxData.taxonomy = postCat;
             }
@@ -34,20 +34,24 @@
                 dataType: 'html',
                 data: ajaxData,
                 beforeSend: function () {
-                    button.attr('disabled', true); // Désactivez le bouton pendant le chargement
+                    button.attr('disabled', true); // Désactive le bouton pendant le chargement
                 },
                 success: function (res) {
                     if (res.trim().length) {
                         $('.img-similar-images').append(res);
-                        button.attr('disabled', false); // Réactivez le bouton une fois le chargement terminé
+                        // Si on est sur la single-photo page, cache le bouton après le chargement des images
+                        if (isSinglePhotoPage) {
+                            button.hide();
+                        } else {
+                            // Sur la front-page, réactive le bouton pour charger plus d'images
+                            button.attr('disabled', false);
+                        }
                     } else {
-                        // Gérez le cas où il n'y a plus d'images à charger
-                        button.hide(); // Cachez le bouton si plus rien à charger
+                        button.hide(); 
                     }
                 },
                 error: function () {
-                    // Gérez les erreurs ici si nécessaire
-                    button.attr('disabled', false); // Assurez-vous que le bouton peut être réessayé si l'ajax échoue
+                    button.attr('disabled', false); // Réactive le bouton en cas d'erreur
                 }
             });
         });

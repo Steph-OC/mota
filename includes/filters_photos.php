@@ -4,7 +4,7 @@ add_action('wp_ajax_nopriv_filters_photos', 'filters_photos');
 
 function filters_photos()
 {
-    // Vérifiez le nonce. Si ça ne passe pas, arrêtez tout.
+    // Vérifie le nonce. Si ça ne passe pas, arrête tout.
     if (!isset($_POST['photos_filter_nonce']) || !wp_verify_nonce($_POST['photos_filter_nonce'], 'photos_filter_action')) {
         echo 'La valeur du nonce est invalide.';
         die();
@@ -50,7 +50,7 @@ function filters_photos()
             $args['tax_query'] = $tax_query;
         }
 
-        // Ajoutez meta_query si nous avons une date valide
+        // Ajoute meta_query si nous avons une date valide
         if (!empty($date) && $date > 0) {
             $args['meta_query'] = array(
                 array(
@@ -67,23 +67,23 @@ function filters_photos()
         if ($my_query->have_posts()) {
             while ($my_query->have_posts()) {
                 $my_query->the_post();
-                // génrer la balise img manuellement
-                //on récupère l'id de la miniature, puis on récupere l'url pour générer la balise img
-                $thumbnail_id = get_post_thumbnail_id(get_the_ID());
-                $thumbnail_url = wp_get_attachment_image_src($thumbnail_id, array(564, 495), true);
 
-                echo '<div class="image-similar">';
-                echo ' <div class="image-overlay">';
-                if ($thumbnail_url) {
-                    echo '<img src="' . esc_url($thumbnail_url[0]) . '" alt="' . esc_attr(get_the_title()) . '" width="564" height="495" style="object-fit: cover;">';
-                }
-                echo '</div>';
-                echo '</div>';
+                ob_start(); // Début de la mise en mémoire tampon
+?>
+                <div class="image-similar">
+                    <div class="image-overlay">
+                        <?php echo get_the_post_thumbnail(get_the_ID(), array(564, 495)); ?>
+                        <?php get_template_part('template-parts/site-overlay-content');  ?>
+                    </div>
+                </div>
+<?php
+                $response .= ob_get_clean(); // Fin de la mise en mémoire tampon et ajout au contenu de la réponse
             }
             wp_reset_postdata();
         } else {
             $response = 'Aucun résultat trouvé.';
         }
+
         echo $response;
         die();
     }

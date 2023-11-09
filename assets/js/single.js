@@ -1,5 +1,8 @@
 
-window.onload = (event) => {
+///////////////////////////////////////////////////////////////////////
+            // Rempli le champs ref de la modal//
+///////////////////////////////////////////////////////////////////////
+window.addEventListener('load', (event) => {
 
     //on prérempli le champ ref.photo dans la modal
     const modal = document.getElementById('myModal');
@@ -24,40 +27,55 @@ window.onload = (event) => {
         modal.classList.add('show');
         e.preventDefault();
     });
+});
 
-    //////////////////////////////////////////////////////////////////////////////
-    //Afficher image au hover fleches
-    //image actuelle
-    let imageMiniature = document.querySelector('.photo-interest > img')
-    // image d'origine
+//////////////////////////////////////////////////////////////////////////////
+                //Affiche image au hover fleches//
+                //renvoie sur la description de l'image au clic//
+//////////////////////////////////////////////////////////////////////////////
+  
+// Sélectionne toutes les images pour le carrousel
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Clicked on the document');
+    let imageMiniature = document.querySelector('.photo-interest > img');
+    // image d'origine pour la réinitialisation au mouseout
     const urlImgOrigine = imageMiniature.src;
     const leftNav = document.querySelector('.left > img');
-    const rightNav = document.querySelector('.right');
+    const rightNav = document.querySelector('.right > img');
+
+    console.log('Left Nav:', leftNav);
+    console.log('Right Nav:', rightNav);
 
     leftNav.addEventListener('mouseover', (e) => {
+        console.log('Left hover');
         let imgPrev = e.target.dataset.prev;
-        imageMiniature.src = imgPrev;
-        imageMiniature.srcset = imgPrev;
+        console.log('Prev Image URL:', imgPrev);
+        if (imgPrev) {
+            imageMiniature.src = imgPrev;
+            imageMiniature.srcset = imgPrev;
+        }
     });
 
     leftNav.addEventListener('mouseout', (e) => {
+        console.log('Left out');
         imageMiniature.src = urlImgOrigine;
         imageMiniature.srcset = urlImgOrigine;
     });
 
     rightNav.addEventListener('mouseover', (e) => {
+        console.log('Right hover');
         let imgNext = e.target.dataset.next;
-        imageMiniature.src = imgNext;
-        imageMiniature.srcset = imgNext;
+        console.log('Next Image URL:', imgNext);
+        if (imgNext) {
+            imageMiniature.src = imgNext;
+            imageMiniature.srcset = imgNext;
+        }
     });
 
-    rightNav.addEventListener('mouseout', () => {
+    rightNav.addEventListener('mouseout', (e) => {
+        console.log('Right out');
         imageMiniature.src = urlImgOrigine;
         imageMiniature.srcset = urlImgOrigine;
     });
+});
 
-
-
-
-
-}
