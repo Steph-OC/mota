@@ -1,9 +1,6 @@
 
-
-<!-- The Modal -->
 <div id="myModal" class="modal">
 
-   <!-- Modal content -->
 <div class="site_modal_contact">
   <div class="site_modal_header">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-header.svg" alt="Image du mot contact répété plusieurs fois en en-tête">
@@ -13,21 +10,3 @@
  </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-     
- 
-
-
-
-
-
-
-  

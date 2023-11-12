@@ -19,8 +19,23 @@
                             </li>
                         </ul>
                     </div>
+                    <?php get_template_part('template-parts/site-lightbox'); ?>
                     <div class="single-photo">
-                        <?php the_content(); ?>
+                    <div class="single-image-overlay">
+                        <?php  if (has_post_thumbnail()) {
+                                // Récupérer l'ID de l'image à la une
+                                $post_thumbnail_id = get_post_thumbnail_id();
+                                // Afficher l'image à la une avec les attributs souhaités
+                                echo wp_get_attachment_image($post_thumbnail_id, 'full', false, array(
+                                    'class' => 'single-image main-photo-img',
+                                    // autres attributs si nécessaire
+                                ));
+                            } ?>
+                        <div class="single-overlay-content">
+                           
+                            <div class="icon-expand icons" data-postid="<?php echo get_the_ID(); ?>"><i class="fa-solid fa-expand fa-lg icon"></i></div>
+                        </div>
+                    </div>
                     </div>
                 </article>
 

@@ -9,7 +9,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0px 146px 0px 146px;
+        margin: 0 146px;
 
         .content-desc-photo {
             display: flex;
@@ -20,31 +20,29 @@
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                list-style-type: none;
-                text-transform: uppercase;
                 margin-bottom: 17px;
                 padding: 0;
                 border-bottom: 1px solid $black;
+                text-transform: uppercase;
+                list-style-type: none;
 
-                & a {
+                a {
                     text-decoration: none;
                 }
 
                 .photo-title {
                     width: 50%;
                     margin: 0;
-                    list-style-type: n;
                 }
 
                 .list-desc-photo {
                     list-style-type: none;
-                    padding-left: 0;
-                    padding-bottom: 20px;
+                    padding: 0 0 20px;
                     margin: 0;
-                }
 
-                & li {
-                    margin-top: 20px;
+                    li {
+                        margin-top: 20px;
+                    }
                 }
             }
         }
@@ -52,6 +50,34 @@
         .single-photo {
             width: 100%;
             margin-left: 21px;
+            padding-bottom: 18px;
+
+            .single-image-overlay {
+                position: relative;
+
+                .single-image {
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                .single-overlay-content {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5); // Un fond semi-transparent
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                &:hover .single-overlay-content {
+                    opacity: 1; // Montre l'overlay au survol
+                }
+            }
         }
     }
 
@@ -69,28 +95,27 @@
             flex-direction: row;
             width: 50%;
             justify-content: space-between;
-
         }
 
         .btn-interest {
-            display: flex;
             width: 272px;
             height: 50px;
             padding: 8px 15px;
+            display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
             border-radius: 2px;
             background: #D8D8D8;
-            box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02);
             color: #000;
-            font-family: Space Mono;
+            font-family: 'Space Mono';
             font-size: 12px;
+            transition: background-color 1s, color 1s;
 
             &:hover {
                 background-color: #000;
                 color: #fff;
-                transition: 1s;
             }
         }
 
@@ -103,13 +128,29 @@
             .right.inactive {
                 opacity: 0.5;
                 cursor: default;
-            }
 
-            .left.inactive img,
-            .right.inactive img {
-                pointer-events: none;
+                img {
+                    pointer-events: none;
+                }
             }
         }
+    }
+
+    .main-photo-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .main-photo .content-single-photo .content-desc-photo {
+        flex-wrap: wrap-reverse;
+    }
+
+    .main-photo .content-interest-contact .interest {
+        flex-direction: column;
 
     }
+
 }

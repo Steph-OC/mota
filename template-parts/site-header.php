@@ -14,7 +14,13 @@
     <div id="page" class="site">
         <header class="site_header">
             <nav class="site_nav">
+                <div class="burger">
+                    <div class="burger-dash"></div>
+                    <div class="burger-dash"></div>
+                    <div class="burger-dash"></div>
+                </div>
                 <img class="site_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="Logo">
+                <div class="menu-mobile">
                 <?php wp_nav_menu(
                     array(
                         'theme_location' => 'nav_menu',
@@ -22,5 +28,6 @@
                         'menu_class' => 'site_header_menu', //ma classe personnalisée
                     )
                 ); ?>
+                </div>
             </nav>
         </header>

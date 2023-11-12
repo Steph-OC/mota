@@ -14,6 +14,7 @@
         width: 100%;
         margin-top: 79px;
         margin-bottom: 41px;
+        justify-content: space-between; 
 
         .selected-option {
             display: flex;
@@ -28,11 +29,11 @@
         }
 
         .categories-contain {
-            margin-right: 40px;
+            margin-right: -17.966vw;
         }
 
         .formats-contain {
-            margin-right: 312px;
+            margin-right: 0x;
         }
 
         .custom-dropdown {
@@ -128,5 +129,18 @@
     to {
         opacity: 0;
         transform: translateY(-40px);
+    }
+}
+@media (max-width: 1390px) {
+    .container-filter #photos_filters {
+       
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin: 0px 0px 40px;
+    
+    }
+    .container-filter #photos_filters .categories-contain {
+        margin-right: 0px ; 
     }
 }

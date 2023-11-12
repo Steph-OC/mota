@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (!event.target.closest('.custom-dropdown')) {
                     customDropdowns.forEach(dropdown => {
                         dropdown.querySelector('.options').classList.remove('visible');
-                        dropdown.classList.remove('active'); // Suppression de la classe 'active' lorsque vous cliquez en dehors du menu déroulant
+                        dropdown.classList.remove('active'); // Suppression de la classe 'active' lorsqu'on clique en dehors du menu déroulant
                     });
                 }
             });

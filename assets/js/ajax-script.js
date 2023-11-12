@@ -1,11 +1,45 @@
+    ///////////////////////////////////////////////////////////////////////////
+    ///////////////////////FILTRES FRONT PAGE /////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////
+    (function ($) {
+    $(document).ready(function () {
+        $('.categories_filters, .formats_filters').change(function () {
+            const category = $('.categories_filters').val();
+            const format = $('.formats_filters').val();
+            const date = $('.dates_filters').val();
+
+            $.ajax({
+                url: ajaxscript.ajaxurl, // URL de l'action Ajax
+                method: 'POST', // Méthode de la requête Ajax
+                data: {
+                    action: 'filters_photos',
+                    category: category,
+                    format: format,
+                    date: date,
+                },
+
+                success: function (response) {
+                    // Réponse de la requête Ajax
+                    $('.image-similar').html(response);
+                }
+            });
+        });
+    });
+
+})(jQuery);
+
+
+//////////////////////////////////////////////////////////////////////////////////
+                           //bouton load more//
+/////////////////////////////////////////////////////////////////////////////////
 
 (function ($) {
     $(document).ready(function () {
         let currentPage = 0;
-        let isSinglePhotoPage = $('body').hasClass('single-photo'); // Vérifiez si c'est la page single-photo
+        let isSinglePhotoPage = $('body').hasClass('single-photo'); // si c'est la page single-photo
         // Gestionnaire de clics pour les images
         $(document).on('click', '.image-similar', function() {
-            // Ici,  ouvrir une lightbox ou exécuter d'autres actions quand on clique sur une image
+         
         });
 
         // Initialisation du bouton Load More
@@ -56,34 +90,4 @@
             });
         });
     });
-})(jQuery);
-
-    ///////////////////////////////////////////////////////////////////////////
-    ///////////////////////FILTRES FRONT PAGE /////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////
-    (function ($) {
-    $(document).ready(function () {
-        $('.categories_filters, .formats_filters').change(function () {
-            const category = $('.categories_filters').val();
-            const format = $('.formats_filters').val();
-            const date = $('.dates_filters').val();
-
-            $.ajax({
-                url: ajaxscript.ajaxurl, // URL de l'action Ajax
-                method: 'POST', // Méthode de la requête Ajax
-                data: {
-                    action: 'filters_photos',
-                    category: category,
-                    format: format,
-                    date: date,
-                },
-
-                success: function (response) {
-                    // Réponse de la requête Ajax
-                    $('.image-similar').html(response);
-                }
-            });
-        });
-    });
-
 })(jQuery);

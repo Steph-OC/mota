@@ -3,7 +3,7 @@
     $(document).ready(function () {
           // Gestionnaire de clics pour les images
           $(document).on('click', '.img-similar-images .image-similar', function() {
-            // Ici, vous pouvez ouvrir une lightbox ou exécuter d'autres actions quand on clique sur une image
+           
         });
         // Lorsque le formulaire de filtrage est soumis
         $('#photos_filters').on('change', 'select', function (e) {
@@ -12,7 +12,8 @@
             const categorie = $('#categories-select').val();
             let format = $('#formats-select').val();
             const date = $('#date-select').val();
-            // Vérifiez si la valeur est la valeur par défaut et, dans ce cas, on la définit sur une chaîne vide
+            // Vérifie si la valeur est la valeur par défaut et, 
+            //dans ce cas, on la définit sur une chaîne vide
             if (format === 'Formats') {
                 format = '';
             }
@@ -32,7 +33,7 @@
                 
 
                 success: function (response) {
-                    $('.img-similar-images').empty(); // Supprimer le contenu précédent
+                    $('.img-similar-images').empty(); // Supprime le contenu précédent
                     $('.img-similar-images').append(response);
                 },
                 error: function () {

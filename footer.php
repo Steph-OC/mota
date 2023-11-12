@@ -8,8 +8,10 @@
     );
     ?>
      <?php get_template_part('template-parts/site-modal-contact'); ?>
+     <?php get_template_part('template-parts/site-lightbox'); ?>
+   
 </footer>
-</div><!-- #page -->
+</div>
 <?php wp_footer(); ?>
 </body>
 

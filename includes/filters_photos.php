@@ -23,7 +23,7 @@ function filters_photos()
             'orderby' => 'date',
         );
 
-        // Construire dynamiquement tax_query en fonction des valeurs reçues
+        // Construit dynamiquement tax_query en fonction des valeurs reçues
         $tax_query = array();
         if (!empty($categorie)) {
             $tax_query[] = array(

@@ -31,12 +31,11 @@
                 endif;
                 ?>
                
-              
-              
             </div>
-            
-            <button id="load-more-button" class="btn-all-images" type="button">Toutes les photos</button> 
-           
+            <div class="container-button">
+            <button id="load-more-button" class="btn-all-images" type="button">Charger plus</button> 
+            </div>
+     
         </section>
     </article>
 </main>

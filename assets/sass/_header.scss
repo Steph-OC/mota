@@ -26,10 +26,13 @@
         .site_header_menu {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: flex-end;
             column-gap: 45px;
             margin-right: 146px;
             padding: 28px 0px 28px 0px;
+            flex-wrap: wrap;
+            width: 50vw;
+            margin-left: 70px;  
 
             li {
                 list-style-type: none;

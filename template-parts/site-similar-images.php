@@ -38,12 +38,9 @@ $args = array(
         wp_reset_postdata();
 
         ?>
-
-        <?php
-
-        ?>
         
     </div>
+    <div class="container-button">
     <button id="load-more-button" class="btn-all-images" data-taxonomy="<?php echo $postCat; ?>" type="button">Toutes les photos</button>
-   
+    </div>
 </section>

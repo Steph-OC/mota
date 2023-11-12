@@ -36,7 +36,7 @@ window.addEventListener('load', (event) => {
   
 // Sélectionne toutes les images pour le carrousel
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Clicked on the document');
+    
     let imageMiniature = document.querySelector('.photo-interest > img');
     // image d'origine pour la réinitialisation au mouseout
     const urlImgOrigine = imageMiniature.src;

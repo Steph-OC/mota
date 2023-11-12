@@ -1,84 +1,187 @@
 .lightbox {
+    display: flex;
     position: fixed;
-    top: 0;
+    justify-content: center;
+    /* Centre horizontalement */
+    align-items: center;
+    /* Centre verticalement */
+    z-index: -10;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    display: none; /* caché par défaut */
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+.lightbox-content {
+    position: relative;
+    padding: 10px;
+    margin: auto;
+    width: 80%;
+    max-width: 700px;
+    max-height: 90%;
+    /* Limite la hauteur du contenu */
+    overflow-y: auto;
+    /* Permet le défilement si l'image est trop haute */
+}
+
+.lightbox-image {
+    width: 100%;
+    /* Utiliser toute la largeur du conteneur de contenu */
+    max-height: 83vh;
+    /* Limiter la hauteur maximale à celle du conteneur */
+    object-fit: contain;
+    /* Assure que l'image s'adapte sans être rognée */
+    height: auto;
+    /* Garder le rapport hauteur/largeur */
+    border: none;
+    /* Pas de bordure */
+    display: block;
+    /* Élimine les espaces blancs en dessous de l'image */
+}
+
+
+/* Titre, référence et catégorie dans la légende */
+.lightbox-caption {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 10;
-}
+    color: white;
+    /* Texte blanc */
+    text-align: center;
+    /* Centrer le texte */
 
-.lightbox.show {
-    display: flex; /* flex affichera la lightbox */
-}
+    .lightbox-title,
+    .lightbox-reference,
+    .lightbox-category {
+        color: white;
+    }
 
-.lightbox__container {
-    display: flex; /* Flexbox pour la disposition */
-    flex-direction: column; /* Les éléments sont empilés verticalement */
-    justify-content: center; /* Centrage vertical */
-    align-items: center; /* Centrage horizontal */
-    position: fixed; /* Fixé à l'écran */
-    top: 50%; /* Centré verticalement */
-    left: 50%; /* Centré horizontalement */
-    transform: translate(-50%, -50%); /* Décalage pour centrer exactement */
-    max-width: 90vw; /* Largeur maximale */
-    max-height: 80vh; /* Hauteur maximale, ajustez en fonction de vos besoins */
-    z-index: 15; /* Au-dessus de l'arrière-plan de la lightbox */
-}
+    .lightbox-category {
+        font-family: Space Mono;
+        font-weight: 400;
+        font-size: 14px;
 
-.lightbox__image {
-    max-width: 100%; /* L'image prend la largeur maximale du conteneur */
-    max-height: 75vh; /* Hauteur maximale de l'image, ajustez pour laisser de la place pour les infos */
-    width: auto; /* Garde les proportions de l'image */
-    height: auto; /* Garde les proportions de l'image */
-}
+    }
 
-.lightbox__close {
-    position: absolute; /* Positionnement par rapport à son premier parent positionné */
-    top: 20px; /* 20px du haut de la lightbox */
-    right: 20px; /* 20px du côté droit de la lightbox */
-    width: 40px; /* Largeur du bouton de fermeture */
-    height: 40px; /* Hauteur du bouton de fermeture */
-    z-index: 20; /* Assurez-vous qu'il est au-dessus des autres éléments de la lightbox */
-    cursor: pointer; /* Change le curseur au survol pour indiquer qu'il est cliquable */
-    color: #fff; /* Couleur de l'icône, ajustez en fonction de votre design */
-    /* Ajoutez d'autres styles pour l'icône si nécessaire */
+    .lightbox-reference {
+        font-family: Poppins;
+        font-weight: 500;
+        font-size: 14px;
+    }
 }
 
 
-.lightbox__next,
-.lightbox__prev {
+/* Bouton de fermeture */
+.lightbox-close {
     position: absolute;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    top: 0%;
+    right: 15%;
+}
+
+/* Boutons de navigation */
+.lightbox-prev,
+.lightbox-next {
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    opacity: 0.8;
+}
+
+.lightbox-prev {
     top: 50%;
-    transform: translateY(-50%);
-    z-index: 11;
-    /* ... autres styles ... */
+    left: 15%;
+
 }
 
-.lightbox__next {
-    right: 20px;
+.lightbox-next {
+    top: 50%;
+    right: 15%;
+
 }
 
-.lightbox__prev {
-    left: 20px;
+/* Ajout d'un hover effect pour les boutons de navigation */
+.lightbox-prev:hover {
+    opacity: 1;
+    animation: arrow-prev-move 1s ease-in-out;
+
 }
 
-.lightbox__infos {
-    display: flex; /* Utiliser Flexbox */
-    justify-content: space-around; /* Répartir les éléments avec de l'espace autour */
-    align-items: center; /* Centrer les éléments verticalement */
-    width: 100%; /* La largeur totale du conteneur */
-    margin-top: 20px; /* Espacement au-dessus des informations, ajustez selon vos besoins */
-    color: #fff; /* La couleur du texte */
-    /* Autres styles selon vos besoins */
+.lightbox-next:hover {
+    opacity: 1;
+    animation: arrow-next-move 1s ease-in-out;
+
 }
 
-.lightbox__infos > div {
-    flex: 1; /* Donne à chaque enfant une flexibilité égale */
-    text-align: center; /* Centre le texte dans chaque div */
-    /* Ajoutez des styles supplémentaires si nécessaire */
+
+.opened {
+    opacity: 1;
+    z-index: 1000;
+}
+
+@keyframes arrow-next-move {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes arrow-prev-move {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+@media screen and (max-width: 720px) {
+
+    .lightbox-next {
+        top: 92%;
+        right: 21%;
+    }
+
+    .lightbox-prev {
+        top: 92%;
+        left: 21%;
+    }
+
+    .container-photo-interest {
+        display: none;
+    }
+
+    .main-photo .content-interest-contact .interest {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .container-similar-images h3 {
+        text-align: center;
+    }
 }
