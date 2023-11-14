@@ -88,7 +88,7 @@
             align-items: center;
             position: fixed;
             top: 79px;
-            left: -81px;
+            left: -130px;
             opacity: 1;
             animation: menu-fade-in 0.5s forwards;
         }
@@ -140,5 +140,19 @@
     to {
         opacity: 0;
         transform: translateX(-320px);
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .menu-mobile.active {
+        left: -11px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .menu-mobile.active {
+        left: -1px;
+
     }
 }

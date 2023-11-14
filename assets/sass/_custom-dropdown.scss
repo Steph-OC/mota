@@ -99,11 +99,11 @@
 
         .arrow {
             svg {
-                transform: rotate(0deg); // État initial (fermé)
+                transform: rotate(0deg); 
                 transition: transform 0.3s ease;
 
                 &.open {
-                    transform: rotate(180deg); // État ouvert
+                    transform: rotate(180deg); 
                 }
             }
         }

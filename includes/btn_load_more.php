@@ -48,15 +48,14 @@ function btn_load_more()
             ob_start();
 ?>
 
-            
-                <div class="image-similar">
-                    <div class="image-overlay">
-                        <?php echo get_the_post_thumbnail(get_the_ID(), array(564, 495)); ?>
-                        <?php get_template_part('template-parts/site-overlay-content'); // Assurez-vous que le chemin est correct 
-                        ?>
-                    </div>
+            <div class="image-similar">
+                <div class="image-overlay">
+                    <?php echo get_the_post_thumbnail(get_the_ID(), array(564, 495)); ?>
+                    <?php get_template_part('template-parts/site-overlay-content');
+                    ?>
                 </div>
-           
+            </div>
+
 <?php
             $response .= ob_get_clean();
         endwhile;

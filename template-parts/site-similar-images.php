@@ -22,7 +22,7 @@ $args = array(
 ?>
 
 <section class="container-similar-images">
-    <h3 class="title-similar_images">VOUS AIMEREZ AUSSI</h3>
+    <h3 class="title-similar-images">VOUS AIMEREZ AUSSI</h3>
     <div class="img-similar-images">
         <?php
         $my_query = new WP_Query($args);
@@ -36,7 +36,6 @@ $args = array(
         endif;
 
         wp_reset_postdata();
-
         ?>
         
     </div>

@@ -21,8 +21,7 @@
                 if ($my_query->have_posts()) :
 
                     while ($my_query->have_posts()) : $my_query->the_post(); ?>
-                        <?php get_template_part('template-parts/site-block-photo'); ?>
-
+                        <?php get_template_part('template-parts/site-block-photo', null, array('post_id' => get_the_ID())); ?>
                 <?php
                     endwhile;
                     wp_reset_postdata();
@@ -30,12 +29,12 @@
                 else : echo "Aucune autre photo ne correspond à votre demande...";
                 endif;
                 ?>
-               
+
             </div>
             <div class="container-button">
-            <button id="load-more-button" class="btn-all-images" type="button">Charger plus</button> 
+                <button id="load-more-button" class="btn-all-images" type="button">Charger plus</button>
             </div>
-     
+
         </section>
     </article>
 </main>

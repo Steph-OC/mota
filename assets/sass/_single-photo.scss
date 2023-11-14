@@ -75,7 +75,7 @@
                 }
 
                 &:hover .single-overlay-content {
-                    opacity: 1; // Montre l'overlay au survol
+                    opacity: 1;
                 }
             }
         }
@@ -89,6 +89,7 @@
         width: 100%;
         border-bottom: 1px solid $black;
         padding-bottom: 11px;
+        margin-bottom: 77px;
 
         .interest {
             display: flex;
@@ -150,7 +151,19 @@
 
     .main-photo .content-interest-contact .interest {
         flex-direction: column;
+    }
+}
 
+@media screen and (max-width: 500px) {
+    .photo-title {
+        font-size: 48px;
     }
 
+    .main-photo .content-single-photo .single-photo {
+        margin-left: 0px;
+    }
+
+    .container-similar-images {
+        width: auto;
+    }
 }

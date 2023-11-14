@@ -229,6 +229,10 @@ body body li {
     flex-direction: inherit;
     width: 100%;
     height: 40px;
+    padding-bottom: 100px;
+  }
+  .site_footer .site_footer_menu {
+    margin-left: 21px;
   }
   .site_footer .site_footer_menu {
     flex-direction: column;
@@ -243,7 +247,6 @@ body body li {
     padding-top: 40px;
   }
 }
-/* The Modal (background) */
 .modal {
   display: flex;
   flex-direction: column;
@@ -255,7 +258,7 @@ body body li {
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   top: -100%;
   opacity: 0;
   transition: top 0.4s, opacity 0.4s ease-in;
@@ -526,6 +529,7 @@ textarea {
   width: 100%;
   border-bottom: 1px solid #000;
   padding-bottom: 11px;
+  margin-bottom: 77px;
 }
 .main-photo .content-interest-contact .interest {
   display: flex;
@@ -581,16 +585,35 @@ textarea {
     flex-direction: column;
   }
 }
+@media screen and (max-width: 500px) {
+  .photo-title {
+    font-size: 48px;
+  }
+  .main-photo .content-single-photo .single-photo {
+    margin-left: 0px;
+  }
+  .container-similar-images {
+    width: auto;
+  }
+}
+.container-similar-images {
+  display: flex;
+  flex-direction: column;
+  width: 74.79vw;
+}
 .container-similar-images .img-similar-images {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 52px;
+}
+.container-similar-images .img-similar-images .title-similar-images {
+  display: flex;
+  flex-direction: row;
 }
 .container-similar-images .img-similar-images h3 {
   width: 100%;
-  margin-top: 77px;
-  margin-bottom: 52px;
 }
 .container-similar-images .img-similar-images .similar-image {
   position: relative;
@@ -717,6 +740,14 @@ textarea {
     margin: 5px 0;
     width: 317px;
     height: 278px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .photo-title {
+    font-size: 48px;
+  }
+  .container-similar-images {
+    width: auto;
   }
 }
 .container-filter {
@@ -865,9 +896,7 @@ textarea {
   display: flex;
   position: fixed;
   justify-content: center;
-  /* Centre horizontalement */
   align-items: center;
-  /* Centre verticalement */
   z-index: -10;
   left: 0;
   top: 0;
@@ -886,28 +915,19 @@ textarea {
   width: 80%;
   max-width: 700px;
   max-height: 90%;
-  /* Limite la hauteur du contenu */
   overflow-y: auto;
-  /* Permet le défilement si l'image est trop haute */
 }
 
 .lightbox-image {
   width: 100%;
-  /* Utiliser toute la largeur du conteneur de contenu */
-  max-height: 83vh;
-  /* Limiter la hauteur maximale à celle du conteneur */
+  max-height: 82vh;
   -o-object-fit: contain;
      object-fit: contain;
-  /* Assure que l'image s'adapte sans être rognée */
   height: auto;
-  /* Garder le rapport hauteur/largeur */
   border: none;
-  /* Pas de bordure */
   display: block;
-  /* Élimine les espaces blancs en dessous de l'image */
 }
 
-/* Titre, référence et catégorie dans la légende */
 .lightbox-caption {
   width: 100%;
   box-sizing: border-box;
@@ -916,9 +936,7 @@ textarea {
   justify-content: space-between;
   align-items: center;
   color: white;
-  /* Texte blanc */
   text-align: center;
-  /* Centrer le texte */
 }
 .lightbox-caption .lightbox-title,
 .lightbox-caption .lightbox-reference,
@@ -936,7 +954,6 @@ textarea {
   font-size: 14px;
 }
 
-/* Bouton de fermeture */
 .lightbox-close {
   position: absolute;
   color: white;
@@ -947,7 +964,6 @@ textarea {
   right: 15%;
 }
 
-/* Boutons de navigation */
 .lightbox-prev,
 .lightbox-next {
   cursor: pointer;
@@ -964,15 +980,14 @@ textarea {
 
 .lightbox-prev {
   top: 50%;
-  left: 15%;
+  left: 18%;
 }
 
 .lightbox-next {
   top: 50%;
-  right: 15%;
+  right: 18%;
 }
 
-/* Ajout d'un hover effect pour les boutons de navigation */
 .lightbox-prev:hover {
   opacity: 1;
   animation: arrow-prev-move 1s ease-in-out;
@@ -1004,14 +1019,37 @@ textarea {
     transform: translateX(-10px);
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1366px) {
   .lightbox-next {
-    top: 92%;
-    right: 21%;
+    right: 7%;
+    top: 50%;
   }
   .lightbox-prev {
-    top: 92%;
-    left: 21%;
+    left: 7%;
+    top: 50%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .lightbox-prev {
+    left: 22%;
+    top: 94%;
+  }
+  .lightbox-next {
+    right: 22%;
+    top: 94%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .lightbox {
+    overflow: hidden;
+  }
+  .lightbox-next {
+    top: 96%;
+    right: 3%;
+  }
+  .lightbox-prev {
+    top: 96%;
+    left: 3%;
   }
   .container-photo-interest {
     display: none;
@@ -1020,9 +1058,23 @@ textarea {
     flex-direction: column;
     width: 100%;
     align-items: center;
+    margin-bottom: 10px;
   }
   .container-similar-images h3 {
     text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .lightbox-close {
+    right: 7%;
+  }
+  .lightbox-prev {
+    left: 3%;
+    top: 76%;
+  }
+  .lightbox-next {
+    right: 3%;
+    top: 76%;
   }
 }
 /* Styles du burger */
@@ -1104,7 +1156,7 @@ textarea {
     align-items: center;
     position: fixed;
     top: 79px;
-    left: -81px;
+    left: -130px;
     opacity: 1;
     animation: menu-fade-in 0.5s forwards;
   }
@@ -1148,6 +1200,16 @@ textarea {
   to {
     opacity: 0;
     transform: translateX(-320px);
+  }
+}
+@media screen and (max-width: 700px) {
+  .menu-mobile.active {
+    left: -11px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .menu-mobile.active {
+    left: -1px;
   }
 }
 .main-page {

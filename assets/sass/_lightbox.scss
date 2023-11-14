@@ -2,9 +2,7 @@
     display: flex;
     position: fixed;
     justify-content: center;
-    /* Centre horizontalement */
     align-items: center;
-    /* Centre verticalement */
     z-index: -10;
     left: 0;
     top: 0;
@@ -23,28 +21,18 @@
     width: 80%;
     max-width: 700px;
     max-height: 90%;
-    /* Limite la hauteur du contenu */
     overflow-y: auto;
-    /* Permet le défilement si l'image est trop haute */
 }
 
 .lightbox-image {
     width: 100%;
-    /* Utiliser toute la largeur du conteneur de contenu */
-    max-height: 83vh;
-    /* Limiter la hauteur maximale à celle du conteneur */
+    max-height: 82vh;
     object-fit: contain;
-    /* Assure que l'image s'adapte sans être rognée */
     height: auto;
-    /* Garder le rapport hauteur/largeur */
     border: none;
-    /* Pas de bordure */
     display: block;
-    /* Élimine les espaces blancs en dessous de l'image */
 }
 
-
-/* Titre, référence et catégorie dans la légende */
 .lightbox-caption {
     width: 100%;
     box-sizing: border-box;
@@ -53,9 +41,7 @@
     justify-content: space-between;
     align-items: center;
     color: white;
-    /* Texte blanc */
     text-align: center;
-    /* Centrer le texte */
 
     .lightbox-title,
     .lightbox-reference,
@@ -67,7 +53,6 @@
         font-family: Space Mono;
         font-weight: 400;
         font-size: 14px;
-
     }
 
     .lightbox-reference {
@@ -77,8 +62,6 @@
     }
 }
 
-
-/* Bouton de fermeture */
 .lightbox-close {
     position: absolute;
     color: white;
@@ -89,7 +72,6 @@
     right: 15%;
 }
 
-/* Boutons de navigation */
 .lightbox-prev,
 .lightbox-next {
     cursor: pointer;
@@ -106,29 +88,23 @@
 
 .lightbox-prev {
     top: 50%;
-    left: 15%;
-
+    left: 18%;
 }
 
 .lightbox-next {
     top: 50%;
-    right: 15%;
-
+    right: 18%;
 }
 
-/* Ajout d'un hover effect pour les boutons de navigation */
 .lightbox-prev:hover {
     opacity: 1;
     animation: arrow-prev-move 1s ease-in-out;
-
 }
 
 .lightbox-next:hover {
     opacity: 1;
     animation: arrow-next-move 1s ease-in-out;
-
 }
-
 
 .opened {
     opacity: 1;
@@ -159,16 +135,43 @@
     }
 }
 
-@media screen and (max-width: 720px) {
-
-    .lightbox-next {
-        top: 92%;
-        right: 21%;
+@media screen and (max-width: 1366px) {
+      .lightbox-next {
+       right: 7%;
+       top: 50%;
     }
 
     .lightbox-prev {
-        top: 92%;
-        left: 21%;
+       left: 7%;
+       top: 50%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+.lightbox-prev {
+	left: 22%;
+	top: 94%;
+}
+.lightbox-next {
+	right: 22%;
+	top: 94%;
+}
+}
+
+@media screen and (max-width: 720px) {
+    .lightbox {
+        overflow: hidden;
+    }
+
+    .lightbox-next {
+        top: 96%;
+        right: 3%;
+    }
+
+    .lightbox-prev {
+        top: 96%;
+        left: 3%;
     }
 
     .container-photo-interest {
@@ -179,9 +182,26 @@
         flex-direction: column;
         width: 100%;
         align-items: center;
+        margin-bottom: 10px;
     }
 
     .container-similar-images h3 {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .lightbox-close {
+        right: 7%;
+    }
+
+    .lightbox-prev {
+        left: 3%;
+        top: 76%;
+    }
+
+    .lightbox-next {
+        right: 3%;
+        top: 76%;
     }
 }

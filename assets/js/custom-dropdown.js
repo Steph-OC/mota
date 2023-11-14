@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
                     divOptions.classList.add('hiding');  // Ajoute la classe 'hiding' pour commencer l'animation de fermeture
             
-                    setTimeout(() => {  // Après la durée de l'animation, retirez 'visible' et 'hiding'
+                    setTimeout(() => {  // Après la durée de l'animation, retire 'visible' et 'hiding'
                         divOptions.classList.remove('visible', 'hiding');
                     }, 700); // la durée de l'animation, soit 0.7s
             

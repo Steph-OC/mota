@@ -1,12 +1,13 @@
-.site_header{
-width: 1447px;
+.site_header {
+    width: 1447px;
 
 }
+
 .site_hero_header {
     max-width: 1440px;
     width: 100%;
     height: 137vh;
-    
+
     .site_hero_image {
         width: 100%;
         height: 62.891vw;
@@ -19,12 +20,12 @@ width: 1447px;
         left: 13vw;
         -webkit-text-stroke: 2px white;
         -webkit-text-fill-color: transparent;
-
     }
 }
+
 @media screen and (max-width: 1350px) {
     .site_hero_header {
-       
+
         height: auto;
     }
-    }
+}

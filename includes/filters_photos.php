@@ -12,7 +12,7 @@ function filters_photos()
 
     // Si les données soumises via Ajax
     if (isset($_POST['action']) && $_POST['action'] === 'filters_photos') {
-        // Récupérer les valeurs des filtres
+        // Récupére les valeurs des filtres
         $categorie = $_POST['categorie'];
         $format = $_POST['format'];
         $date = intval($_POST['date']);  // Convertit la date en entier
@@ -41,7 +41,6 @@ function filters_photos()
             );
         }
 
-        // Si nous avons plus d'une taxonomie à interroger, nous devons définir la relation
         if (count($tax_query) > 1) {
             $tax_query['relation'] = 'AND';
         }
