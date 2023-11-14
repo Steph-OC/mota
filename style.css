@@ -1070,11 +1070,11 @@ textarea {
   }
   .lightbox-prev {
     left: 3%;
-    top: 76%;
+    top: 96%;
   }
   .lightbox-next {
     right: 3%;
-    top: 76%;
+    top: 96%;
   }
 }
 /* Styles du burger */
